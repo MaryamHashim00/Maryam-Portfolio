@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maryam Alhawashim | Portfolio</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Global Navigation -->
+    <header class="global-header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Maryam Alhawashim | Portfolio</a>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="experience.html" class="nav-link">Experience</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="courses.html" class="nav-link">Courses & Certifications</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <a href="assets/Maryam_Alhawashim_CV.pdf" class="btn btn-primary" download>Download CV</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="main-content">
+	
+<section class="hero-section">
+    <div class="container hero-container">
+        <div class="hero-content">
+            <h1 class="hero-title animate-1">Maryam Alhawashim</h1>
+            <h2 class="hero-tagline animate-2">Data, ideas & <span class="text-highlight">everything in between.</span></h2>
+            <p class="hero-supporting animate-3">Curious by nature, always learning something new.</p>
+            <div class="hero-actions animate-4">
+                <a href="projects.html" class="btn btn-primary btn-lg">Explore My Work</a>
+                <a href="assets/Maryam_Alhawashim_CV.pdf" class="btn btn-outline btn-lg" download>Download CV</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+    <section class="about-section">
+        <div class="container about-container">
+            
+            <!-- Left Column: Narrative Content -->
+            <div class="about-narrative">
+                <span class="section-eyebrow">ABOUT ME</span>
+                <h2 class="section-heading">A little about me</h2>
+                <p class="about-text" id="reading-paragraph">
+                    <span class="word">I</span> <span class="word">am</span> <span class="word">an</span> <span class="word">Information</span> <span class="word">Systems</span> <span class="word">&amp;</span> <span class="word">Business</span> <span class="word">Analytics</span> <span class="word">graduate</span> <span class="word">from</span> <span class="word">Imam</span> <span class="word">Abdulrahman</span> <span class="word">bin</span> <span class="word">Faisal</span> <span class="word">University,</span> <span class="word">graduating</span> <span class="word">in</span> <span class="word">2026</span> <span class="word">with</span> <span class="word">Second</span> <span class="word">Class</span> <span class="word">Honors.</span> <span class="word">My</span> <span class="word">practical</span> <span class="word">experience</span> <span class="word">includes</span> <span class="word">data</span> <span class="word">preparation,</span> <span class="word">KPI</span> <span class="word">monitoring,</span> <span class="word">reporting,</span> <span class="word">dashboard</span> <span class="word">development,</span> <span class="word">and</span> <span class="word">refining</span> <span class="word">operational</span> <span class="word">workflows.</span> <span class="word">I</span> <span class="word">enjoy</span> <span class="word">transforming</span> <span class="word">raw</span> <span class="word">information</span> <span class="word">into</span> <span class="word">clarity,</span> <span class="word">continually</span> <span class="word">exploring</span> <span class="word">new</span> <span class="word">tools,</span> <span class="word">and</span> <span class="word">turning</span> <span class="word">ideas</span> <span class="word">into</span> <span class="word">practical,</span> <span class="word">working</span> <span class="word">solutions.</span>
+                </p>
+            </div>
+
+            <!-- Right Column: Focus Areas Grid -->
+            <div class="about-categories">
+                <div class="category-card">
+                    <span class="category-title">Data Analytics</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-title">Business Intelligence</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-title">Business Analysis</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-title">Machine Learning</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Simple Scroll Reading Effect Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const paragraph = document.getElementById('reading-paragraph');
+            if (!paragraph) return;
+
+            const words = paragraph.querySelectorAll('.word');
+            
+            // Respect prefers-reduced-motion
+            const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+            if (mediaQuery.matches) {
+                words.forEach(word => word.classList.add('is-active'));
+                return;
+            }
+
+            function updateScrollReading() {
+                const rect = paragraph.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+
+                // Calculate progress as the paragraph scrolls through the middle of the viewport
+                const startTrigger = windowHeight * 0.85;
+                const endTrigger = windowHeight * 0.25;
+                
+                let progress = (startTrigger - rect.top) / (startTrigger - endTrigger);
+                progress = Math.max(0, Math.min(1, progress));
+
+                const activeCount = Math.floor(progress * words.length);
+
+                words.forEach((word, index) => {
+                    if (index <= activeCount) {
+                        word.classList.add('is-active');
+                    } else {
+                        word.classList.remove('is-active');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', updateScrollReading, { passive: true });
+            updateScrollReading();
+        });
+    </script>
+	<!-- Include this script right before closing body or inside existing DOMContentLoaded script blocks -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const header = document.querySelector('.global-header');
+        if (header && !header.querySelector('.mobile-menu-toggle')) {
+            const navContainer = header.querySelector('.nav-container');
+            const mainNav = header.querySelector('.main-nav');
+            const navActions = header.querySelector('.nav-actions');
+
+            if (navContainer && mainNav) {
+                const toggleBtn = document.createElement('button');
+                toggleBtn.className = 'mobile-menu-toggle';
+                toggleBtn.setAttribute('aria-label', 'Toggle navigation menu');
+                toggleBtn.innerHTML = '<span></span><span></span><span></span>';
+                
+                // Insert toggle before nav actions or at the end of container
+                if (navActions) {
+                    navContainer.insertBefore(toggleBtn, navActions);
+                } else {
+                    navContainer.appendChild(toggleBtn);
+                }
+
+                toggleBtn.addEventListener('click', function() {
+                    toggleBtn.classList.toggle('is-active');
+                    mainNav.classList.toggle('is-open');
+                });
+
+                // Close menu when a link is clicked
+                mainNav.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', function() {
+                        toggleBtn.classList.remove('is-active');
+                        mainNav.classList.remove('is-open');
+                    });
+                });
+            }
+        }
+    });
+</script>
+
+        <!-- Page-specific sections will go here -->
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="global-footer">
+        <div class="container footer-container">
+            <div class="footer-top">
+                <h2 class="footer-title">Let's Connect</h2>
+                <p class="footer-message">I am always open to discussing new data-driven projects, business analytics opportunities, or simply connecting with fellow professionals.</p>
+                <div class="footer-actions">
+                    <a href="mailto:placeholder@email.com" class="btn btn-primary">Email Me</a>
+                    <a href="https://linkedin.com/in/placeholder" target="_blank" rel="noopener noreferrer" class="btn btn-outline">LinkedIn</a>
+                    <a href="assets/Maryam_Alhawashim_CV.pdf" class="btn btn-outline" download>Download CV</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2026 Maryam Alhawashim. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

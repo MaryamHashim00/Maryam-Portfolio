@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Maryam Alhawashim</title>
+    <!-- Google Fonts: Manrope -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Global CSS Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Projects Specific Dynamic Motion & Layout CSS -->
+    <style>
+        .animate-header-eyebrow,
+        .animate-header-title,
+        .project-reveal-item {
+            opacity: 0;
+            transform: translateY(30px) scale(0.98);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .animate-header-eyebrow {
+            transform: translateY(20px);
+            transition-delay: 0.1s;
+        }
+
+        .animate-header-title {
+            transform: translateY(25px);
+            transition-delay: 0.25s;
+        }
+
+        .animate-header-eyebrow.is-visible,
+        .animate-header-title.is-visible,
+        .project-reveal-item.is-visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .project-reveal-item[data-delay="1"] { transition-delay: 0.1s; }
+        .project-reveal-item[data-delay="2"] { transition-delay: 0.25s; }
+        .project-reveal-item[data-delay="3"] { transition-delay: 0.4s; }
+        .project-reveal-item[data-delay="4"] { transition-delay: 0.55s; }
+
+        .animate-trophy {
+            display: inline-block;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s;
+        }
+        .animate-trophy.is-visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .featured-project-card {
+            border: 1px solid rgba(44, 90, 133, 0.25);
+            box-shadow: 0 10px 30px rgba(44, 90, 133, 0.05);
+        }
+
+        .project-image-wrapper {
+            overflow: hidden;
+            border-radius: var(--radius-sm);
+        }
+
+        .project-image-placeholder {
+            height: 220px;
+            background-color: #f1f5f9;
+            border: 1px dashed var(--border-color);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform;
+        }
+
+        .featured-project-image-wrapper .featured-image-container {
+            height: 360px;
+            background-color: #f1f5f9;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .featured-project-image-wrapper .featured-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform;
+        }
+
+        @media (hover: hover) {
+            .project-card:hover .project-image-placeholder,
+            .featured-project-card:hover .featured-image-container img {
+                transform: scale(1.05);
+            }
+        }
+
+        .project-card, .featured-project-card {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+        }
+
+        @media (hover: hover) {
+            .project-card:hover, .featured-project-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 12px 35px rgba(0, 0, 0, 0.07);
+                border-color: var(--accent-primary);
+            }
+        }
+
+        .arrow-link .arrow {
+            display: inline-block;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @media (hover: hover) {
+            .arrow-link:hover .arrow {
+                transform: translateX(5px);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .animate-header-eyebrow,
+            .animate-header-title,
+            .project-reveal-item,
+            .animate-trophy,
+            .project-image-placeholder,
+            .featured-image-container img,
+            .project-card,
+            .featured-project-card,
+            .arrow-link .arrow {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+			
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Global Header & Navbar -->
+    <header class="global-header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Maryam Alhawashim | Portfolio</a>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="experience.html" class="nav-link">Experience</a></li>
+                    <li><a href="projects.html" class="nav-link active">Projects</a></li>
+                    <li><a href="courses.html" class="nav-link">Courses & Certifications</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <a href="assets/Maryam_Alhawashim_CV.pdf" class="btn btn-outline" download>Download CV</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="site-main">
+
+        <!-- Page Header Section -->
+        <section class="page-header-section">
+            <div class="container page-header-container">
+                <span class="section-eyebrow animate-header-eyebrow">PROJECTS</span>
+                <h1 class="page-title animate-header-title">A selection of work, ideas, and things I’ve built.</h1>
+            </div>
+        </section>
+
+        <!-- Projects Content Section -->
+        <section class="projects-section">
+            <div class="container projects-container">
+
+                <!-- 01 — FEATURED PROJECT: NBDS -->
+                <div class="featured-project-card project-reveal-item" data-delay="1">
+                    <div class="featured-project-image-wrapper">
+                        <div class="featured-image-container">
+                            <img src="assets/NBDS.png" alt="NBDS - Neural Billing Decision System Dashboard">
+                        </div>
+                    </div>
+                    <div class="featured-project-content">
+                        <div class="project-meta-header">
+                            <span class="project-type-tag">Graduation Project · 1st Place</span>
+                            <span class="award-badge animate-trophy" title="1st Place Award">🏆</span>
+                        </div>
+                        <h2 class="featured-project-title">NBDS — Neural Billing Decision System</h2>
+                        <p class="project-description">An AI-powered billing decision system designed to automate billing anomaly classification and support data-driven decision-making.</p>
+                        <div class="project-skills-list">
+                            <span class="tag">Python</span>
+                            <span class="tag">Power BI</span>
+                            <span class="tag">Machine Learning</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="nbds.html" class="btn btn-primary arrow-link">
+                                View Project <span class="arrow">&rarr;</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other Projects Grid (3 Projects) -->
+                <div class="projects-grid">
+
+                    <!-- 02 — E-COMMERCE SALES DASHBOARD -->
+                    <div class="project-card project-reveal-item" data-delay="2">
+<div class="project-image-wrapper">
+    <img src="assets/E-Commerce1.png" 
+         alt="E-Commerce Analytics Dashboard">
+</div>
+                        <div class="project-card-content">
+                            <span class="project-type-tag">Business Intelligence · Data Visualization</span>
+                            <h3 class="project-title">E-Commerce Analytics Dashboard</h3>
+                            <p class="project-description">An interactive Power BI dashboard analyzing e-commerce performance, customer behavior, and delivery efficiency.</p>
+                            <div class="project-skills-list">
+                                <span class="tag">Power BI</span>
+                                <span class="tag">DAX</span>
+                                <span class="tag">Data Analysis</span>
+                                <span class="tag">Dashboard Design</span>
+                            </div>
+                            <div class="project-actions">
+                                <a href="Ecommerce.html" class="btn btn-outline arrow-link">View Project <span class="arrow">&rarr;</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 03 — CREDIT CARD FRAUD DETECTION 
+                    <div class="project-card project-reveal-item" data-delay="3">
+                        <div class="project-image-wrapper">
+                            <div class="project-image-placeholder">
+                                [Credit Card Fraud Detection Preview]
+                            </div>
+                        </div>
+                        <div class="project-card-content">
+                            <span class="project-type-tag">Predictive Analytics · Machine Learning</span>
+                            <h3 class="project-title">Credit Card Fraud Detection</h3>
+                            <p class="project-description">A predictive analytics solution for detecting fraudulent credit card transactions using machine learning and model evaluation.</p>
+                            <div class="project-skills-list">
+                                <span class="tag">Machine Learning</span>
+                                <span class="tag">Predictive Analytics</span>
+                                <span class="tag">Data Preprocessing</span>
+                                <span class="tag">Model Evaluation</span>
+                            </div>
+                            <div class="project-actions">
+                                <a href="#" class="btn btn-outline arrow-link">View Project <span class="arrow">&rarr;</span></a>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <!-- 04 — SALES DASHBOARD -->
+                    <div class="project-card project-reveal-item" data-delay="4">
+                        <div class="project-image-wrapper">
+<img src="assets/Sales.jpg" alt="Sales Performance Dashboard">
+                        </div>
+                        <div class="project-card-content">
+                            <span class="project-type-tag">Business Intelligence · Data Visualization</span>
+                            <h3 class="project-title">Sales Dashboard</h3>
+                            <p class="project-description">A Power BI dashboard that transforms raw sales data into meaningful business insights through data preparation, modeling, and visualization.</p>
+                            <div class="project-skills-list">
+                                <span class="tag">Power BI</span>
+                                <span class="tag">Power Query</span>
+                                <span class="tag">DAX</span>
+                                <span class="tag">Data Modeling</span>
+                            </div>
+                            <div class="project-actions">
+                                <a href="Sales.html" class="btn btn-outline arrow-link">View Project <span class="arrow">&rarr;</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="global-footer">
+    <footer class="global-footer">
+        <div class="container footer-container">
+            <div class="footer-top">
+                <h2 class="footer-title">Let’s connect</h2>
+                <p class="footer-message">Reach out for data analytics opportunities or project discussions.</p>
+                <div class="footer-actions">
+                    <a href="mailto:maryamalhawashim@gmail.com" class="btn btn-primary">Email Me</a>
+                    <a href="https://www.linkedin.com/in/maryam-alhawashim-b79035365/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">LinkedIn</a>
+                    <a href="assets/Maryam_Alhawashim_CV.pdf" class="btn btn-outline" download>Download CV</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2026 Maryam Alhawashim. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Intersection Observer Script for Entrance & Staggered Scroll Animations -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const headerEyebrow = document.querySelector('.animate-header-eyebrow');
+            const headerTitle = document.querySelector('.animate-header-title');
+            
+            if (headerEyebrow) headerEyebrow.classList.add('is-visible');
+            if (headerTitle) headerTitle.classList.add('is-visible');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -60px 0px',
+                threshold: 0.1
+            };
+
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        
+                        const trophy = entry.target.querySelector('.animate-trophy');
+                        if (trophy) {
+                            trophy.classList.add('is-visible');
+                        }
+
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.project-reveal-item').forEach(item => {
+                revealObserver.observe(item);
+            });
+        });
+    </script>
+	<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const header = document.querySelector('.global-header');
+        if (header && !header.querySelector('.mobile-menu-toggle')) {
+            const navContainer = header.querySelector('.nav-container');
+            const mainNav = header.querySelector('.main-nav');
+            const navActions = header.querySelector('.nav-actions');
+
+            if (navContainer && mainNav) {
+                const toggleBtn = document.createElement('button');
+                toggleBtn.className = 'mobile-menu-toggle';
+                toggleBtn.setAttribute('aria-label', 'Toggle navigation menu');
+                toggleBtn.innerHTML = '<span></span><span></span><span></span>';
+                
+                // Insert toggle before nav actions or at the end of container
+                if (navActions) {
+                    navContainer.insertBefore(toggleBtn, navActions);
+                } else {
+                    navContainer.appendChild(toggleBtn);
+                }
+
+                toggleBtn.addEventListener('click', function() {
+                    toggleBtn.classList.toggle('is-active');
+                    mainNav.classList.toggle('is-open');
+                });
+
+                // Close menu when a link is clicked
+                mainNav.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', function() {
+                        toggleBtn.classList.remove('is-active');
+                        mainNav.classList.remove('is-open');
+                    });
+                });
+            }
+        }
+    });
+</script>
+</body>
+</html>

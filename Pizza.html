@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Dashboard | Maryam Alhawashim</title>
+    <!-- Google Fonts: Manrope -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Global CSS Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Page Specific Layout & Motion CSS -->
+    <style>
+        .animate-case-item {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .animate-case-item.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero Header */
+        .case-header-section {
+            padding: 7rem 0 3.5rem;
+            border-bottom: 1px solid var(--border-color, #e2e8f0);
+            margin-bottom: 3.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .case-header-section {
+                padding: 5.5rem 0 2.5rem;
+            }
+        }
+
+        .case-eyebrow {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-primary, #2c5a85);
+            margin-bottom: 0.75rem;
+        }
+
+        .case-title {
+            font-size: clamp(2rem, 4vw, 3.25rem);
+            font-weight: 700;
+            color: var(--text-primary, #0f172a);
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            line-height: 1.25;
+        }
+
+        .case-subtitle {
+            font-size: clamp(1.05rem, 2vw, 1.25rem);
+            color: var(--text-muted, #64748b);
+            max-width: 780px;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* Dashboard Showcase Section */
+        .case-section {
+            margin-bottom: 4rem;
+        }
+
+        .dashboard-showcase-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color, #e2e8f0);
+            border-radius: var(--radius-lg, 16px);
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            margin-bottom: 2.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .dashboard-showcase-card {
+                padding: 2.5rem;
+            }
+        }
+
+        .dashboard-image-wrapper {
+            width: 100%;
+            overflow: hidden;
+            border-radius: var(--radius-md, 12px);
+            background-color: var(--bg-secondary, #f8fafc);
+            border: 1px solid var(--border-color, #e2e8f0);
+        }
+
+        .dashboard-image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        /* Minimal Tools Section */
+        .tools-metadata-section {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color, #e2e8f0);
+        }
+
+        .tools-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary, #0f172a);
+        }
+
+        .tool-badge {
+            font-size: 0.85rem;
+            color: var(--text-secondary, #334155);
+            background: rgba(44, 90, 133, 0.06);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            .animate-case-item {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Global Header & Navbar -->
+    <header class="global-header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Maryam Alhawashim | Portfolio</a>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="experience.html" class="nav-link">Experience</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="courses.html" class="nav-link active">Courses & Certifications</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <a href="assets/Maryam_Alhawashim_CV.pdf" class="btn btn-primary" download>Download CV</a>
+            </div>
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="site-main">
+
+        <!-- Hero Section -->
+        <section class="case-header-section">
+            <div class="container animate-case-item">
+                <div class="case-eyebrow">Power BI Dashboard</div>
+                <h1 class="case-title">Pizza Dashboard</h1>
+                <p class="case-subtitle">An interactive Power BI dashboard developed to analyze and visualize pizza sales performance and business insights.</p>
+            </div>
+        </section>
+
+        <!-- Dashboard Showcase Container -->
+        <div class="container">
+            <section class="case-section animate-case-item" style="transition-delay: 0.1s;">
+                <div class="dashboard-showcase-card">
+                    <div class="dashboard-image-wrapper">
+                        <img src="assets/Pizza dashboard.JPG" alt="Pizza Sales Power BI Dashboard Showcase">
+                    </div>
+                    
+                    <div class="tools-metadata-section">
+                        <span class="tools-label">Tools:</span>
+                        <span class="tool-badge">Power BI</span>
+                        <span class="tool-badge">Data Analysis</span>
+                        <span class="tool-badge">Data Visualization</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="global-footer">
+        <div class="container footer-container">
+            <div class="footer-top">
+                <h2 class="footer-title">Let’s connect</h2>
+                <p class="footer-message">Reach out for data analytics opportunities or project discussions.</p>
+                <div class="footer-actions">
+                    <a href="mailto:maryamalhawashim@gmail.com" class="btn btn-primary">Email Me</a>
+                    <a href="https://www.linkedin.com/in/maryam-alhawashim-b79035365/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">LinkedIn</a>
+                    <a href="assets/Maryam_Alhawashim_CV.pdf" class="btn btn-outline" download>Download CV</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2026 Maryam Alhawashim. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Reveal & Mobile Navigation Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Scroll Reveal Observer
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -40px 0px',
+                threshold: 0.1
+            };
+
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.animate-case-item').forEach(item => {
+                revealObserver.observe(item);
+            });
+
+            // Mobile Navigation Toggle
+            const toggleBtn = document.querySelector('.mobile-menu-toggle');
+            const mainNav = document.querySelector('.main-nav');
+
+            if (toggleBtn && mainNav) {
+                toggleBtn.addEventListener('click', function() {
+                    toggleBtn.classList.toggle('is-active');
+                    mainNav.classList.toggle('is-open');
+                });
+
+                mainNav.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', function() {
+                        toggleBtn.classList.remove('is-active');
+                        mainNav.classList.remove('is-open');
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

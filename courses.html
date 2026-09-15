@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses & Certifications | Maryam Alhawashim</title>
+    <!-- Google Fonts: Manrope -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Global CSS Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Page Specific Layout & Motion CSS -->
+    <style>
+        .animate-case-item {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .animate-case-item.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero Header */
+        .case-header-section {
+            padding: 7rem 0 3.5rem;
+            border-bottom: 1px solid var(--border-color, #e2e8f0);
+            margin-bottom: 3.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .case-header-section {
+                padding: 5.5rem 0 2.5rem;
+            }
+        }
+
+        .case-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--text-primary, #0f172a);
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            line-height: 1.25;
+        }
+
+        .case-subtitle {
+            font-size: clamp(1.05rem, 2vw, 1.25rem);
+            color: var(--text-muted, #64748b);
+            max-width: 780px;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* Case Sections */
+        .case-section {
+            margin-bottom: 4rem;
+        }
+
+        .case-section-title {
+            font-size: 1.65rem;
+            font-weight: 700;
+            color: var(--text-primary, #0f172a);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        /* Featured Learning Card */
+        .featured-card {
+            background: #ffffff;
+            border: 1px solid rgba(44, 90, 133, 0.25);
+            border-radius: var(--radius-md, 12px);
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(44, 90, 133, 0.04);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .featured-card.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .featured-card:hover {
+            border-color: rgba(44, 90, 133, 0.4);
+            box-shadow: 0 14px 36px rgba(44, 90, 133, 0.07);
+        }
+
+        .featured-header-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .featured-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-primary, #2c5a85);
+            background: rgba(44, 90, 133, 0.08);
+            padding: 0.35rem 0.85rem;
+            border-radius: 20px;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            background-color: var(--accent-primary, #2c5a85);
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse-dot 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.9); }
+        }
+
+        .featured-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-primary, #0f172a);
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+        }
+
+        .featured-desc {
+            color: var(--text-secondary, #334155);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin: 0;
+            max-width: 800px;
+        }
+
+        /* Courses Grid */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .course-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color, #e2e8f0);
+            border-radius: var(--radius-sm, 8px);
+            padding: 1.75rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .course-card.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .course-card:hover {
+            border-color: rgba(44, 90, 133, 0.3);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.04);
+        }
+
+        .course-provider-tag {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-primary, #2c5a85);
+            background: #f8fafc;
+            padding: 0.25rem 0.65rem;
+            border-radius: 4px;
+            display: inline-block;
+            border: 1px solid var(--border-color, #e2e8f0);
+            margin-bottom: 1rem;
+            align-self: flex-start;
+        }
+
+        .course-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary, #0f172a);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            .animate-case-item,
+            .featured-card,
+            .course-card {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+            .status-dot {
+                animation: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Global Header & Navbar -->
+    <header class="global-header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Maryam Alhawashim | Portfolio</a>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="experience.html" class="nav-link">Experience</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="courses.html" class="nav-link active">Courses & Certifications</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <a href="assets/Maryam_Alhawashim_CV.pdf" class="btn btn-primary" download>Download CV</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="site-main">
+
+        <!-- Hero Section -->
+        <section class="case-header-section">
+            <div class="container animate-case-item">
+                <h1 class="case-title">Courses & Certifications</h1>
+                <p class="case-subtitle">"Expanding my knowledge in data analysis and business intelligence."</p>
+            </div>
+        </section>
+
+        <!-- Container -->
+        <div class="container">
+
+            <!-- Featured Learning Section -->
+            <section class="case-section animate-case-item">
+                <h2 class="case-section-title">Featured Learning</h2>
+                <div class="featured-card">
+                    <div class="featured-header-row">
+                        <span class="featured-badge">
+                            <span class="status-dot"></span> In Progress
+                        </span>
+                    </div>
+                    <h3 class="featured-title">Microsoft Power BI Data Analyst — PL-300</h3>
+                    <p class="featured-desc">Preparing for the PL-300 certification with a focus on Power BI data preparation, modeling, visualization, and reporting.</p>
+                </div>
+            </section>
+
+            <!-- Courses Section -->
+            <section class="case-section animate-case-item">
+                <h2 class="case-section-title">Courses</h2>
+                <div class="courses-grid">
+                    <!-- Course 1 -->
+                    <div class="course-card" style="transition-delay: 0.1s;">
+                        <div>
+                            <span class="course-provider-tag">Coursera</span>
+                            <h3 class="course-title">Preparing Data for Analysis with Microsoft Excel</h3>
+                        </div>
+                    </div>
+
+                    <!-- Course 2 -->
+                    <div class="course-card" style="transition-delay: 0.15s;">
+                        <div>
+                            <span class="course-provider-tag">Coursera</span>
+                            <h3 class="course-title">Harnessing the Power of Data with Power BI</h3>
+                        </div>
+                    </div>
+
+                    <!-- Course 3 -->
+                    <div class="course-card" style="transition-delay: 0.2s;">
+                        <div>
+                            <span class="course-provider-tag">King Fahd University of Petroleum and Minerals</span>
+                            <h3 class="course-title">Data Analysis using Power BI</h3>
+							<!-- Add this button inside the card for the "Data Analysis using Power BI" course under KFUPM in courses.html -->
+<div class="course-action" style="margin-top: 1rem;">
+    <a href="Pizza.html" class="btn btn-outline" style="font-size: 0.9rem; padding: 0.4rem 0.9rem;">View Dashboard &rarr;</a>
+</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="global-footer">
+        <div class="container footer-container">
+            <div class="footer-top">
+                <h2 class="footer-title">Let’s connect</h2>
+                <p class="footer-message">Reach out for data analytics opportunities or project discussions.</p>
+                <div class="footer-actions">
+                    <a href="mailto:maryamalhawashim@gmail.com" class="btn btn-primary">Email Me</a>
+                    <a href="https://www.linkedin.com/in/maryam-alhawashim-b79035365/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">LinkedIn</a>
+                    <a href="assets/Maryam_Alhawashim_CV.pdf" class="btn btn-outline" download>Download CV</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2026 Maryam Alhawashim. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Reveal Animation Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -40px 0px',
+                threshold: 0.1
+            };
+
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.animate-case-item, .featured-card, .course-card').forEach(item => {
+                revealObserver.observe(item);
+            });
+        });
+    </script>
+	<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const header = document.querySelector('.global-header');
+        if (header && !header.querySelector('.mobile-menu-toggle')) {
+            const navContainer = header.querySelector('.nav-container');
+            const mainNav = header.querySelector('.main-nav');
+            const navActions = header.querySelector('.nav-actions');
+
+            if (navContainer && mainNav) {
+                const toggleBtn = document.createElement('button');
+                toggleBtn.className = 'mobile-menu-toggle';
+                toggleBtn.setAttribute('aria-label', 'Toggle navigation menu');
+                toggleBtn.innerHTML = '<span></span><span></span><span></span>';
+                
+                // Insert toggle before nav actions or at the end of container
+                if (navActions) {
+                    navContainer.insertBefore(toggleBtn, navActions);
+                } else {
+                    navContainer.appendChild(toggleBtn);
+                }
+
+                toggleBtn.addEventListener('click', function() {
+                    toggleBtn.classList.toggle('is-active');
+                    mainNav.classList.toggle('is-open');
+                });
+
+                // Close menu when a link is clicked
+                mainNav.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', function() {
+                        toggleBtn.classList.remove('is-active');
+                        mainNav.classList.remove('is-open');
+                    });
+                });
+            }
+        }
+    });
+</script>
+</body>
+</html>

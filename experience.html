@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience | Maryam Alhawashim</title>
+    <!-- Google Fonts: Manrope -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Global CSS Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+</head>
+<body>
+
+    <!-- Global Header & Navbar -->
+    <header class="global-header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Maryam Alhawashim | Portfolio</a>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="experience.html" class="nav-link active">Experience</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="courses.html" class="nav-link">Courses & Certifications</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <a href="assets/Maryam_Alhawashim_CV.pdf" class="btn btn-outline" download>Download CV</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="site-main">
+
+        <!-- Experience Header Section -->
+        <section class="page-header-section">
+            <div class="container page-header-container">
+                <span class="section-eyebrow animate-1">PROFESSIONAL EXPERIENCE</span>
+                <h1 class="page-title animate-2">A closer look at the work behind the data</h1>
+            </div>
+        </section>
+
+        <!-- Experience Timeline Section -->
+        <section class="timeline-section">
+            <div class="container timeline-container">
+                <div class="timeline-wrapper">
+                    
+                    <!-- Vertical Line -->
+                    <div class="timeline-line"></div>
+
+                    <!-- Experience Item 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content-wrapper">
+                            <div class="timeline-date-col">
+                                <span class="timeline-date">Aug 2026 – Present</span>
+                                <span class="timeline-type">Volunteer</span>
+                            </div>
+                            <div class="timeline-details-col">
+                                <h3 class="experience-role">Administrative Assistant Volunteer</h3>
+                                <h4 class="experience-company">Saihat Society For Social Services</h4>
+<ul class="experience-list">
+    <li>Prepared daily administrative achievement reports and provided performance updates to the department head.</li>
+    <li>Consolidated and organized data from multiple sources into a structured file to improve data management.</li>
+    <li>Preparing to analyze the updated data using Power BI to generate insights and support performance monitoring.</li>
+    <li>Supported the development of internal administrative websites to improve data management and streamline organizational processes.</li>
+    <li>Designed and developed web interfaces for administrative services using HTML, CSS, and JavaScript.</li>
+    <li>Collaborated with the team to understand administrative requirements and translate them into practical digital solutions.</li>
+</ul>
+                                <div class="experience-tags">
+                                    <span class="tag">Administration</span>
+                                    <span class="tag">Data Management</span>
+                                    <span class="tag">Power BI</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Experience Item 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content-wrapper">
+                            <div class="timeline-date-col">
+                                <span class="timeline-date">Feb 2026 – May 2026</span>
+                                <span class="timeline-type">Internship</span>
+                            </div>
+                            <div class="timeline-details-col">
+                                <h3 class="experience-role">Data Analyst Intern</h3>
+                                <h4 class="experience-company">Qatif Municipality – Eastern Province, Saudi Arabia</h4>
+                                <ul class="experience-list">
+                                    <li>Consolidated and validated data from 12+ municipal departments for reporting and operational decision-making.</li>
+                                    <li>Contributed to quarterly performance reports and monitored KPI trends for quarterly performance reviews.</li>
+                                    <li>Standardized 3 Excel templates using Data Validation, improving data consistency and reducing entry errors.</li>
+                                    <li>Improved data quality and reduced reporting cycle time from several days to approximately 2 hours by streamlining data extraction and reporting processes.</li>
+                                </ul>
+                                <div class="experience-tags">
+                                    <span class="tag">Data Analysis</span>
+                                    <span class="tag">Excel</span>
+                                    <span class="tag">KPI Reporting</span>
+                                    <span class="tag">Data Quality</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="global-footer">
+        <div class="container footer-container">
+            <div class="footer-top">
+                <h2 class="footer-title">Let’s connect</h2>
+                <p class="footer-message">Reach out for data analytics opportunities or project discussions.</p>
+                <div class="footer-actions">
+                    <a href="mailto:maryamalhawashim@gmail.com" class="btn btn-primary">Email Me</a>
+                    <a href="https://www.linkedin.com/in/maryam-alhawashim-b79035365/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">LinkedIn</a>
+                    <a href="assets/Maryam_Alhawashim_CV.pdf" class="btn btn-outline" download>Download CV</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2026 Maryam Alhawashim. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Timeline Scroll Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            
+            const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+            if (mediaQuery.matches) {
+                timelineItems.forEach(item => item.classList.add('is-visible'));
+                return;
+            }
+
+            function handleScrollAnimation() {
+                const triggerBottom = window.innerHeight * 0.85;
+
+                timelineItems.forEach(item => {
+                    const itemTop = item.getBoundingClientRect().top;
+                    if (itemTop < triggerBottom) {
+                        item.classList.add('is-visible');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', handleScrollAnimation, { passive: true });
+            handleScrollAnimation();
+        });
+    </script>
+	<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const header = document.querySelector('.global-header');
+        if (header && !header.querySelector('.mobile-menu-toggle')) {
+            const navContainer = header.querySelector('.nav-container');
+            const mainNav = header.querySelector('.main-nav');
+            const navActions = header.querySelector('.nav-actions');
+
+            if (navContainer && mainNav) {
+                const toggleBtn = document.createElement('button');
+                toggleBtn.className = 'mobile-menu-toggle';
+                toggleBtn.setAttribute('aria-label', 'Toggle navigation menu');
+                toggleBtn.innerHTML = '<span></span><span></span><span></span>';
+                
+                // Insert toggle before nav actions or at the end of container
+                if (navActions) {
+                    navContainer.insertBefore(toggleBtn, navActions);
+                } else {
+                    navContainer.appendChild(toggleBtn);
+                }
+
+                toggleBtn.addEventListener('click', function() {
+                    toggleBtn.classList.toggle('is-active');
+                    mainNav.classList.toggle('is-open');
+                });
+
+                // Close menu when a link is clicked
+                mainNav.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', function() {
+                        toggleBtn.classList.remove('is-active');
+                        mainNav.classList.remove('is-open');
+                    });
+                });
+            }
+        }
+    });
+</script>
+</body>
+</html>
