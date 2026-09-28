@@ -1765,9 +1765,4 @@ body {
         object-fit: contain !important;
     }
 }
-/* Muntij card - keep the same size as regular project cards */
-.projects-grid .muntij-card {
-    grid-column: auto !important;
-    grid-row: auto !important;
-}
 }
