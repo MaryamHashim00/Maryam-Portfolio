@@ -40,11 +40,50 @@
             <div class="container page-header-container">
                 <span class="section-eyebrow animate-1">PROFESSIONAL EXPERIENCE</span>
                 <h1 class="page-title animate-2">A closer look at the work behind the data</h1>
+                <!-- Scroll indicator: points visitors to the experience timeline -->
+                <a href="#experience-timeline" class="experience-scroll-cue" aria-label="Scroll down to explore my experience">
+                    <span>SCROLL TO EXPLORE</span>
+                    <span class="experience-scroll-arrow" aria-hidden="true">&#8595;</span>
+                </a>
+                <style>
+                    .experience-scroll-cue {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 6px;
+                        width: fit-content;
+                        margin: 24px auto 0;
+                        color: var(--text-muted, #718096);
+                        font-size: 0.72rem;
+                        font-weight: 600;
+                        letter-spacing: 0.12em;
+                        text-decoration: none;
+                    }
+                    .experience-scroll-arrow {
+                        display: inline-block;
+                        color: var(--accent-primary, #477a9e);
+                        font-size: 1.5rem;
+                        line-height: 1;
+                        animation: experience-scroll-bounce 1.6s ease-in-out infinite;
+                    }
+                    .experience-scroll-cue:focus-visible {
+                        outline: 2px solid var(--accent-primary, #477a9e);
+                        outline-offset: 5px;
+                        border-radius: 3px;
+                    }
+                    @keyframes experience-scroll-bounce {
+                        0%, 100% { transform: translateY(0); }
+                        50% { transform: translateY(5px); }
+                    }
+                    @media (prefers-reduced-motion: reduce) {
+                        .experience-scroll-arrow { animation: none; }
+                    }
+                </style>
             </div>
         </section>
 
         <!-- Experience Timeline Section -->
-        <section class="timeline-section">
+        <section class="timeline-section" id="experience-timeline">
             <div class="container timeline-container">
                 <div class="timeline-wrapper">
                     
