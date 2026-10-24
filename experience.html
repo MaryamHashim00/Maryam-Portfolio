@@ -46,6 +46,16 @@
                     <span class="experience-scroll-arrow" aria-hidden="true">&#8595;</span>
                 </a>
                 <style>
+                    /* Smooth scrolling for the experience-page scroll cue */
+                    html {
+                        scroll-behavior: smooth;
+                    }
+                    #experience-timeline {
+                        scroll-margin-top: 20px;
+                    }
+                    @media (prefers-reduced-motion: reduce) {
+                        html { scroll-behavior: auto; }
+                    }
                     .experience-scroll-cue {
                         display: flex;
                         flex-direction: column;
